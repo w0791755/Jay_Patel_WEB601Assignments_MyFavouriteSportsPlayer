@@ -1,1 +1,18 @@
-<p>content-card works!</p>
+<div
+  ngClass="{{ content?.id }}"
+>
+  <div class="content-img">
+    <img src="{{ content?.imgURL }}"/>
+  </div>
+  <div class="content-card">
+
+      <h2>{{ content?.title }}</h2>
+      <h2>{{ content?.playername }}</h2>
+      <h2>{{ content?.gender }}</h2>
+    
+
+    <p class="content-description">
+      {{ content?.playerdescription }}
+    </p>
+  </div>
+  </div>
