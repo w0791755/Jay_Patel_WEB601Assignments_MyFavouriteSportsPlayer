@@ -1,6 +1,24 @@
-<h1>My Favourite Sport person in this world</h1>
-<ul class="content-list">
-  <li *ngFor="let content of contentList">
-    <app-content-card [content] ="content"></app-content-card>
-  </li>
-</ul>
+<section class="section">
+  <h2>My Favorite sports person</h2>
+
+  <div>
+    <label for="search">Search</label>
+    <input
+      type="text"
+      id="search"
+      placeholder="Search"
+  
+    />
+ 
+  </div>
+ 
+  <ul class="content-list">
+    <li *ngFor="let content of content-list | content-list">
+      
+      <ul>
+          <app-content-list [content-list]="content"></app-content-list>
+      
+      </ul>
+      </li>
+    </ul>
+</section>

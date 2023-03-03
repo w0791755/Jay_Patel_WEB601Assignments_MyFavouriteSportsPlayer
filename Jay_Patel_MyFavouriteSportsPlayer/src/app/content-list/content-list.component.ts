@@ -4,11 +4,11 @@ import { Content } from '../helper-files/content-interface';
 @Component({
   selector: 'app-content-list',
   templateUrl: './content-list.component.html',
-  styleUrls: ['./content-list.component.scss']
+  styleUrls: ['./content-list.component.css'],
 })
-export class ContentListComponent  {
-  
-
+export class ContentListComponent {
+  public isAvailable = false;
+  public searchTerm = '';
   contentList: Content[]=[
     {
       id: 1,
@@ -64,9 +64,27 @@ gender: 'male',
 
     },
   ];
-  constructor() {
-  }
-  ngOnInit(){
 
+  constructor() {
+    this.isAvailable = false;
+    this.searchTerm = '';
+  }
+
+  handleInput(event: any) {
+    this.searchTerm = event.target.value;
+  }
+
+  searchContent() {
+    console.log(this.searchTerm);
+
+    this.contentList.forEach((content) => {
+      if (content.title.includes(this.searchTerm)) {
+        this.isAvailable = true;
+      } else if (this.searchTerm === '') {
+        this.isAvailable = false;
+      } else {
+        this.isAvailable = false;
+      }
+    });
   }
 }
